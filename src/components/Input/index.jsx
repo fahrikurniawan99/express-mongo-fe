@@ -1,21 +1,38 @@
 const Input = (props) => {
-  if(props.type === 'checkbox') {
+  if (props.type === "checkbox") {
     return (
       <div>
-        <input className={props.error && 'is-invalid'} {...props} />
+        <input className={props.error && "is-invalid"} {...props} />
         <label>{props.label}</label>
-        { props.error && props.error.map(err => <p key={err} className="invalid">* {err}</p>)}
+        {props.error &&
+          props.error.map((err) => (
+            <p key={err} className="invalid">
+              * {err}
+            </p>
+          ))}
       </div>
-    )
-  }else {
+    );
+  } else {
     return (
       <div>
         <label>{props.label}</label>
-        <input className={`form-control ${props.error && 'is-invalid'}`} {...props} />
-        { props.error && props.error.map(err => <p key={err} className="invalid">* {err}</p>)}
+        <input
+          className={`form-control ${props.error && "is-invalid"}`}
+          {...props}
+        />
+        {props.error &&
+          props.error.map((err) => (
+            <p
+              key={err}
+              style={{ marginBottom: 20, color: "#ff3224" }}
+              className="invalid"
+            >
+              * {err}
+            </p>
+          ))}
       </div>
-    )
+    );
   }
-}
+};
 
 export default Input;
